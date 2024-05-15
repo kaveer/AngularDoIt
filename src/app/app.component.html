@@ -4,19 +4,20 @@
   <div class="container">
     <div class="row align-items-center">
       <div class="col-4">
-          <div class="card">
-            <div class="card-header">
-              <label for="exampleFormControlInput1" class="form-label">Add to-do</label>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">New Do It</h5>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
-              <br>
-              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn btn-primary" type="button">Button</button>
-              </div>
+        <div class="card">
+          <div class="card-header">
+            <label for="exampleFormControlInput1" class="form-label">To-Do</label>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">New Do It</h5>
+            <input type="text" class="form-control" [(ngModel)]="toDoValue" id="exampleFormControlInput1"
+                   placeholder="">
+            <br>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button class="btn btn-primary" (click)="addToDo()" type="button">Add todo</button>
             </div>
           </div>
+        </div>
       </div>
     </div>
   </div>
@@ -24,24 +25,22 @@
 <br>
 <div class="container-fluid">
   <div class="container">
-  <div class="row align-items-center">
-          <div class="col-11">
-            <div class="card">
-              <div class="card-header">
-                <label for="exampleFormControlInput1" class="form-label">Add to-do</label>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Default checkbox
-                  </label>
-                </li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-              </ul>
-            </div>
+    <div class="row align-items-center">
+      <div class="col-11">
+        <div class="card">
+          <div class="card-header">
+            <label for="exampleFormControlInput1" class="form-label">To Do list</label>
           </div>
-  </div>
+          <ul class="list-group list-group-flush">
+            <li *ngFor="let toDoItem of toDoList" class="list-group-item">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                {{ toDoItem }}
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
